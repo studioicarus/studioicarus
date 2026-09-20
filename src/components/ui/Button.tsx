@@ -9,8 +9,8 @@ type Props = {
 }
 
 const variants = {
-  primary: 'bg-brand text-white shadow-glow hover:bg-brand-400 hover:-translate-y-px',
-  outline: 'border border-white/30 bg-white/[0.04] text-white backdrop-blur-sm hover:border-white/60 hover:bg-white/10',
+  primary: 'bg-brand text-on-brand shadow-glow hover:bg-brand-400 hover:-translate-y-px',
+  outline: 'border border-ink/40 bg-transparent text-ink hover:border-ink hover:bg-ink/10',
 }
 
 const sizes = {

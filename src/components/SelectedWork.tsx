@@ -36,14 +36,14 @@ export default function SelectedWork() {
   }
 
   const arrow =
-    'absolute top-[36%] z-10 hidden h-8 w-8 -translate-y-1/2 place-items-center rounded-full text-brand-400 transition hover:bg-white/10 hover:text-white disabled:pointer-events-none disabled:opacity-30 sm:grid'
+    'absolute top-[36%] z-10 hidden h-8 w-8 -translate-y-1/2 place-items-center rounded-full text-ink transition hover:bg-ink/10 disabled:pointer-events-none disabled:opacity-30 sm:grid'
 
   return (
-    <section id="work" className="relative overflow-hidden bg-gradient-to-b from-navy-850 to-navy-900 py-16 sm:py-20 lg:py-[88px]">
+    <section id="work" className="relative overflow-hidden bg-paper py-16 sm:py-20 lg:py-[88px]">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent" aria-hidden />
       <Container>
         <Reveal className="flex flex-wrap items-end justify-between gap-5">
-          <SectionHeading dark title="Selected Work" subtitle="A glimpse of what we've created." />
+          <SectionHeading title="Selected Work" subtitle="A glimpse of what we've created." />
           <Button href="#work" variant="outline" size="sm" className="lg:h-[60px] lg:px-9 lg:text-[18px]">
             View Full Portfolio
           </Button>
@@ -62,7 +62,7 @@ export default function SelectedWork() {
               <li key={title} className="w-[76%] shrink-0 snap-start sm:w-[calc(50%-10px)] lg:w-[calc(25%-18px)]">
                 <Reveal delay={i * 80}>
                   <a href="#contact" className="group block">
-                    <div className="relative aspect-[5/4] overflow-hidden rounded-[20px] border border-brand/35 bg-navy-900 shadow-[0_0_0_1px_rgba(29,109,255,0.08),0_18px_40px_-20px_rgba(0,0,0,0.8)] transition duration-300 group-hover:border-brand-400/80 group-hover:shadow-[0_0_28px_-6px_rgba(29,109,255,0.55)]">
+                    <div className="relative aspect-[5/4] overflow-hidden rounded-[20px] border border-brand/50 bg-paper-deep shadow-[0_18px_40px_-20px_rgba(10,82,121,0.45)] transition duration-300 group-hover:border-brand group-hover:shadow-[0_18px_40px_-14px_rgba(29,160,214,0.6)]">
                       <img
                         src={image}
                         alt={alt}
@@ -71,12 +71,12 @@ export default function SelectedWork() {
                         height={640}
                         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      <span className="absolute left-1/2 top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full lg:h-16 lg:w-16 bg-brand/90 text-white shadow-[0_6px_20px_rgba(29,109,255,0.6)] ring-4 ring-white/10 transition duration-300 group-hover:scale-110">
+                      <span className="absolute left-1/2 top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full lg:h-16 lg:w-16 bg-brand/90 text-on-brand shadow-[0_6px_20px_rgba(29,160,214,0.6)] ring-4 ring-paper/40 transition duration-300 group-hover:scale-110">
                         <Play size={20} fill="currentColor" className="ml-0.5" aria-hidden />
                       </span>
                     </div>
-                    <h3 className="mt-4 text-[16px] font-semibold text-white lg:mt-5 lg:text-[24px]">{title}</h3>
-                    <p className="mt-0.5 text-[13px] text-slate-400 lg:mt-1 lg:text-[19px]">{tag}</p>
+                    <h3 className="mt-4 text-[16px] font-semibold text-ink lg:mt-5 lg:text-[24px]">{title}</h3>
+                    <p className="mt-0.5 text-[13px] text-muted lg:mt-1 lg:text-[19px]">{tag}</p>
                   </a>
                 </Reveal>
               </li>

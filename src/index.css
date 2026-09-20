@@ -3,20 +3,25 @@
 @theme {
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --color-navy-950: #040b1f;
-  --color-navy-900: #071230;
-  --color-navy-850: #0a1a3c;
-  --color-navy-800: #0c2048;
-  --color-ink: #0a1f4d;
-  --color-brand: #1d6dff;
-  --color-brand-600: #1559e0;
-  --color-brand-400: #4a8cff;
-  --color-brand-100: #e2ecff;
-  --color-brand-50: #f0f5ff;
-  --color-muted: #5b6b8c;
+  /* Grays sampled from the reference: page, alternate sections, cards, and a darker gray for header/footer */
+  --color-paper: #989a97;
+  --color-paper-light: #adafac;
+  --color-surface: #c5c7c4;
+  --color-paper-deep: #5f615e;
 
-  --shadow-card: 0 14px 34px -16px rgba(16, 48, 120, 0.28);
-  --shadow-glow: 0 10px 28px -8px rgba(29, 109, 255, 0.65);
+  /* Reference blue for fills and large accents; deep shades of it for text on gray */
+  --color-brand: #1da0d6;
+  --color-brand-600: #084f76;
+  --color-brand-400: #4ab5e3;
+  --color-brand-100: #cfe8f5;
+  --color-brand-50: #e3f1f8;
+  --color-ink: #04304a;
+  --color-muted: #05334f;
+  --color-on-brand: #052a3f;
+  --color-on-deep: #e3f3fb;
+
+  --shadow-card: 0 14px 34px -16px rgba(10, 82, 121, 0.3);
+  --shadow-glow: 0 10px 28px -8px rgba(29, 160, 214, 0.6);
 }
 
 html {
@@ -33,7 +38,7 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-navy-950);
+  background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
