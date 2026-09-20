@@ -1,8 +1,12 @@
 import { ArrowRight } from 'lucide-react'
 import { services } from '../data/content'
 import Container from './ui/Container'
+import Link from './ui/Link'
 import Reveal from './ui/Reveal'
 import SectionHeading from './ui/SectionHeading'
+
+const exploreClass =
+  'mt-5 inline-flex items-center gap-1.5 text-[14px] font-semibold text-ink transition-all lg:mt-6 lg:text-[16px] xl:text-[19px]'
 
 export default function Services() {
   return (
@@ -13,8 +17,8 @@ export default function Services() {
         </Reveal>
 
         <div className="mt-9 grid gap-6 md:grid-cols-3 lg:mt-14 lg:gap-8">
-          {services.map(({ title, text, image, alt, icon: Icon }, i) => (
-            <Reveal key={title} delay={i * 90} className="h-full">
+          {services.map(({ title, text, image, alt, icon: Icon, href }, i) => {
+            const card = (
               <article className="group h-full overflow-hidden rounded-[20px] border border-ink/15 bg-surface shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_44px_-18px_rgba(10,82,121,0.4)]">
                 <div className="aspect-[8/5] overflow-hidden bg-paper-deep">
                   <img
@@ -32,16 +36,31 @@ export default function Services() {
                   </span>
                   <h3 className="mt-5 text-[20px] font-semibold leading-snug text-ink lg:mt-9 lg:text-[21px] xl:text-[25px]">{title}</h3>
                   <p className="mt-3 text-[15px] leading-[1.7] text-muted lg:mt-4 lg:text-[16px] lg:leading-[1.7] xl:text-[19px]">{text}</p>
-                  <a
-                    href="#work"
-                    className="mt-5 inline-flex items-center gap-1.5 text-[14px] font-semibold text-ink transition-all hover:gap-3 lg:mt-6 lg:text-[16px] xl:text-[19px]"
-                  >
-                    Explore <ArrowRight size={17} aria-hidden />
-                  </a>
+                  {href ? (
+                    <span className={`${exploreClass} group-hover:gap-3`}>
+                      Explore <ArrowRight size={17} aria-hidden />
+                    </span>
+                  ) : (
+                    <a href="#work" className={`${exploreClass} hover:gap-3`}>
+                      Explore <ArrowRight size={17} aria-hidden />
+                    </a>
+                  )}
                 </div>
               </article>
-            </Reveal>
-          ))}
+            )
+
+            return (
+              <Reveal key={title} delay={i * 90} className="h-full">
+                {href ? (
+                  <Link href={href} className="block h-full rounded-[20px]">
+                    {card}
+                  </Link>
+                ) : (
+                  card
+                )}
+              </Reveal>
+            )
+          })}
         </div>
       </Container>
     </section>

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import { navLinks } from '../data/content'
+import { GET_STARTED_PATH, navLinks } from '../data/content'
 import Button from './ui/Button'
 import Container from './ui/Container'
+import Link from './ui/Link'
 import Logo from './ui/Logo'
 
 export default function Navbar() {
@@ -24,15 +25,15 @@ export default function Navbar() {
           <ul className="hidden items-center gap-7 md:flex lg:gap-8 xl:gap-11">
             {navLinks.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="text-[13px] font-medium text-on-deep underline-offset-8 decoration-brand decoration-2 transition-colors hover:underline lg:text-[16px] xl:text-[18px]">
+                <Link href={l.href} className="text-[13px] font-medium text-on-deep underline-offset-8 decoration-brand decoration-2 transition-colors hover:underline lg:text-[16px] xl:text-[18px]">
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
 
           <div className="flex items-center gap-3">
-            <Button href="#contact" size="sm" className="hidden md:inline-flex">
+            <Button href={GET_STARTED_PATH} size="sm" className="hidden md:inline-flex">
               Get Started
             </Button>
             <button
@@ -58,18 +59,18 @@ export default function Navbar() {
             <ul className="flex flex-col border-t border-white/15 pt-2">
               {navLinks.map((l) => (
                 <li key={l.href}>
-                  <a
+                  <Link
                     href={l.href}
                     onClick={() => setOpen(false)}
                     tabIndex={open ? 0 : -1}
                     className="block border-b border-white/10 py-3.5 text-[15px] font-medium text-on-deep"
                   >
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
-            <Button href="#contact" className="mt-5 w-full" size="md">
+            <Button href={GET_STARTED_PATH} className="mt-5 w-full" size="md">
               Get Started
             </Button>
           </Container>

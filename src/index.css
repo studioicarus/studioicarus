@@ -46,9 +46,11 @@ body {
   overflow-x: hidden;
 }
 
+/* Dark ring plus a light halo, so focus shows on both the gray pages and the charcoal header/footer */
 :focus-visible {
-  outline: 2px solid var(--color-brand-400);
+  outline: 2px solid var(--color-ink);
   outline-offset: 3px;
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.75);
   border-radius: 6px;
 }
 

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import Link from './Link'
 
 type Props = {
   href: string
@@ -20,11 +21,11 @@ const sizes = {
 
 export default function Button({ href, variant = 'primary', size = 'md', className = '', children }: Props) {
   return (
-    <a
+    <Link
       href={href}
       className={`inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold transition duration-200 ${variants[variant]} ${sizes[size]} ${className}`}
     >
       {children}
-    </a>
+    </Link>
   )
 }

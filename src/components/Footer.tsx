@@ -1,6 +1,7 @@
 import { footerColumns } from '../data/content'
 import { Instagram, Linkedin, Tiktok, Youtube } from './ui/BrandIcons'
 import Container from './ui/Container'
+import Link from './ui/Link'
 import Logo from './ui/Logo'
 
 const socials = [
@@ -25,9 +26,9 @@ export default function Footer() {
             <ul className="mt-4 space-y-2.5 lg:mt-6 lg:space-y-3.5">
               {col.links.map((l) => (
                 <li key={l.label}>
-                  <a href={l.href} className="text-[14px] text-on-deep underline-offset-4 transition-colors hover:underline lg:text-[18px]">
+                  <Link href={l.href} className="text-[14px] text-on-deep underline-offset-4 transition-colors hover:underline lg:text-[18px]">
                     {l.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
