@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-navy-950: #040b1f;
+  --color-navy-900: #071230;
+  --color-navy-850: #0a1a3c;
+  --color-navy-800: #0c2048;
+  --color-ink: #0a1f4d;
+  --color-brand: #1d6dff;
+  --color-brand-600: #1559e0;
+  --color-brand-400: #4a8cff;
+  --color-brand-100: #e2ecff;
+  --color-brand-50: #f0f5ff;
+  --color-muted: #5b6b8c;
+
+  --shadow-card: 0 14px 34px -16px rgba(16, 48, 120, 0.28);
+  --shadow-glow: 0 10px 28px -8px rgba(29, 109, 255, 0.65);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--color-navy-950);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-400);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
