@@ -1,5 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { ChevronLeft, ChevronRight, Play } from 'lucide-react'
+import { Play } from 'lucide-react'
 import { work } from '../data/content'
 import Button from './ui/Button'
 import Container from './ui/Container'
@@ -7,37 +6,6 @@ import Reveal from './ui/Reveal'
 import SectionHeading from './ui/SectionHeading'
 
 export default function SelectedWork() {
-  const track = useRef<HTMLUListElement>(null)
-  const [canPrev, setCanPrev] = useState(false)
-  const [canNext, setCanNext] = useState(false)
-
-  const update = useCallback(() => {
-    const el = track.current
-    if (!el) return
-    setCanPrev(el.scrollLeft > 4)
-    setCanNext(el.scrollLeft + el.clientWidth < el.scrollWidth - 4)
-  }, [])
-
-  useEffect(() => {
-    update()
-    const el = track.current
-    if (!el) return
-    const ro = new ResizeObserver(update)
-    ro.observe(el)
-    return () => ro.disconnect()
-  }, [update])
-
-  const scrollByCard = (dir: 1 | -1) => {
-    const el = track.current
-    if (!el) return
-    const card = el.querySelector('li')
-    const step = card ? card.getBoundingClientRect().width + 20 : el.clientWidth * 0.8
-    el.scrollBy({ left: dir * step, behavior: 'smooth' })
-  }
-
-  const arrow =
-    'absolute top-[36%] z-10 hidden h-8 w-8 -translate-y-1/2 place-items-center rounded-full text-ink transition hover:bg-ink/10 disabled:pointer-events-none disabled:opacity-30 sm:grid'
-
   return (
     <section id="work" className="relative overflow-hidden bg-paper py-16 sm:py-20 lg:py-[88px]">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent" aria-hidden />
@@ -49,40 +17,42 @@ export default function SelectedWork() {
           </Button>
         </Reveal>
 
-        <div className="relative mt-9 lg:mt-14">
-          <button type="button" aria-label="Previous projects" disabled={!canPrev} onClick={() => scrollByCard(-1)} className={`${arrow} -left-2 lg:-left-11`}>
-            <ChevronLeft size={20} />
-          </button>
-          <button type="button" aria-label="Next projects" disabled={!canNext} onClick={() => scrollByCard(1)} className={`${arrow} -right-2 lg:-right-11`}>
-            <ChevronRight size={20} />
-          </button>
-
-          <ul ref={track} onScroll={update} className="no-scrollbar -mx-5 flex snap-x snap-mandatory scroll-pl-5 gap-5 overflow-x-auto lg:gap-6 scroll-smooth px-5 sm:mx-0 sm:scroll-pl-0 sm:px-0">
-            {work.map(({ title, tag, image, alt }, i) => (
-              <li key={title} className="w-[76%] shrink-0 snap-start sm:w-[calc(50%-10px)] lg:w-[calc(25%-18px)]">
-                <Reveal delay={i * 80}>
-                  <a href="#contact" className="group block">
-                    <div className="relative aspect-[5/4] overflow-hidden rounded-[20px] border border-brand/50 bg-paper-deep shadow-[0_18px_40px_-20px_rgba(12,47,50,0.45)] transition duration-300 group-hover:border-brand group-hover:shadow-[0_18px_40px_-14px_rgba(22,150,161,0.6)]">
-                      <img
-                        src={image}
-                        alt={alt}
-                        loading="lazy"
-                        width={800}
-                        height={640}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      <span className="absolute left-1/2 top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full lg:h-16 lg:w-16 bg-brand/90 text-on-brand shadow-[0_6px_20px_rgba(22,150,161,0.6)] ring-4 ring-paper/40 transition duration-300 group-hover:scale-110">
-                        <Play size={20} fill="currentColor" className="ml-0.5" aria-hidden />
+        <ul className="mt-9 flex flex-wrap justify-center gap-x-8 gap-y-12 lg:mt-14 lg:gap-x-10">
+          {work.map(({ title, tag, text, image, alt, skills }, i) => (
+            <li key={title} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.7rem)]">
+              <Reveal delay={i * 80}>
+                <a href="#contact" className="group block">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-[20px] border border-brand/50 bg-paper-deep shadow-[0_18px_40px_-20px_rgba(12,47,50,0.45)] transition duration-300 group-hover:border-brand group-hover:shadow-[0_18px_40px_-14px_rgba(22,150,161,0.6)]">
+                    <img
+                      src={image}
+                      alt={alt}
+                      loading="lazy"
+                      width={800}
+                      height={640}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <span className="absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-brand/90 text-on-brand shadow-[0_6px_20px_rgba(22,150,161,0.6)] ring-4 ring-paper/40 transition duration-300 group-hover:scale-110 lg:h-16 lg:w-16">
+                      <Play size={20} fill="currentColor" className="ml-0.5" aria-hidden />
+                    </span>
+                  </div>
+                  <h3 className="mt-5 text-[22px] font-semibold leading-snug text-ink lg:mt-6 lg:text-[26px]">{title}</h3>
+                </a>
+                <p className="mt-1.5 text-[16px] font-medium leading-snug text-brand-600 lg:text-[18px]">{tag}</p>
+                <p className="mt-3 text-[15px] leading-relaxed text-muted lg:text-[17px] lg:leading-[1.65]">{text}</p>
+                <ul className="mt-6 flex flex-wrap gap-x-2 gap-y-5 sm:gap-x-3">
+                  {skills.map(({ label, icon: Icon }) => (
+                    <li key={label} className="flex w-[74px] flex-col items-center text-center sm:w-[84px]">
+                      <span className="grid h-14 w-14 place-items-center rounded-full bg-brand-50 text-brand-600">
+                        <Icon strokeWidth={1.7} className="h-6 w-6" aria-hidden />
                       </span>
-                    </div>
-                    <h3 className="mt-4 text-[16px] font-semibold text-ink lg:mt-5 lg:text-[24px]">{title}</h3>
-                    <p className="mt-0.5 text-[13px] text-muted lg:mt-1 lg:text-[19px]">{tag}</p>
-                  </a>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
-        </div>
+                      <span className="mt-2 text-[13px] font-medium leading-tight text-ink lg:text-[14px]">{label}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
       </Container>
     </section>
   )

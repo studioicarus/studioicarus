@@ -1,14 +1,20 @@
 import {
   BadgeCheck,
   Blocks,
+  BookOpen,
+  Box,
   BrainCircuit,
+  Brush,
   CalendarDays,
   Camera,
   Clapperboard,
   Compass,
+  FileSearch,
   FileText,
+  Film,
   GraduationCap,
   Handshake,
+  Image as ImageIcon,
   Images,
   Layers,
   LayoutDashboard,
@@ -176,11 +182,52 @@ export const needs: { lines: [string, string]; icon: AnyIcon }[] = [
   { lines: ['Educational', 'Content'], icon: GraduationCap },
 ]
 
-export const work = [
-  { title: 'Podcast Shorts', tag: 'Video Editing', image: '/images/work-podcast.webp', alt: 'Two podcast hosts recording in a blue-lit studio' },
-  { title: 'Product Advertisement', tag: 'AI + Photography', image: '/images/work-product.webp', alt: 'Presenter behind a glowing white product on a wooden table' },
-  { title: 'LinkedIn Content', tag: 'Ghostwriting', image: '/images/work-linkedin.webp', alt: 'Tablet showing LinkedIn posts and a content dashboard' },
-  { title: 'Educational Animation', tag: 'AI Generated', image: '/images/work-education.webp', alt: 'Illustrated learning scene with a tablet showing charts' },
+export const work: {
+  title: string
+  tag: string
+  text: string
+  image: string
+  alt: string
+  skills: { label: string; icon: AnyIcon }[]
+}[] = [
+  {
+    title: 'Product Advertisement',
+    tag: 'AI + 3D Modeling + Graphic Design + Video Editing',
+    text: 'We create engaging video content for social media or your personal website using 3D modeling, graphic design, video editing and the power of AI.',
+    image: '/images/work-product.webp',
+    alt: 'Presenter behind a glowing white product on a wooden table',
+    skills: [
+      { label: '3D Modeling', icon: Box },
+      { label: 'Graphic Design', icon: Brush },
+      { label: 'Video Editing', icon: Film },
+      { label: 'AI Prompting', icon: Sparkles },
+    ],
+  },
+  {
+    title: 'LinkedIn Content',
+    tag: 'Ghostwriting',
+    text: "We craft natural, authentic ghostwriting by deeply researching each client's previous writing to capture their unique voice and style. Combined with expert topic research and analysis, every piece feels genuinely written by the client.",
+    image: '/images/work-linkedin.webp',
+    alt: 'Tablet showing LinkedIn posts and a content dashboard',
+    skills: [
+      { label: 'Ghostwriting', icon: Mic },
+      { label: 'Voice Research', icon: Search },
+      { label: 'Expert Analysis', icon: FileSearch },
+    ],
+  },
+  {
+    title: 'Educational Animation',
+    tag: 'AI + Storytelling + Video Production',
+    text: 'Our artists create original, emotionally powerful stories designed to connect with audiences. Our tech team brings those ideas to life through visualization, AI prompt engineering, and professional video editing.',
+    image: '/images/work-education.webp',
+    alt: 'Illustrated learning scene with a tablet showing charts',
+    skills: [
+      { label: 'Original Stories', icon: BookOpen },
+      { label: 'Visualization', icon: ImageIcon },
+      { label: 'AI Prompt Engineering', icon: BrainCircuit },
+      { label: 'Video Editing', icon: Film },
+    ],
+  },
 ]
 
 export const steps: { n: string; title: string; text: string; icon: LucideIcon }[] = [
