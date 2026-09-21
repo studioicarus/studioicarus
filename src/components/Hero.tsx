@@ -10,7 +10,7 @@ export default function Hero() {
           <h1 className="text-[36px] font-semibold leading-[1.12] tracking-[-0.02em] text-ink sm:text-[52px] lg:text-[60px] lg:leading-[1.25] xl:text-[74px] xl:leading-[1.28]">
             We Create,
             <br />
-            You Own the <span className="text-brand-600">Spotlight</span>
+            You Own the <span className="text-brand-600">Spotlight.</span>
           </h1>
           <p className="mt-6 max-w-[430px] text-[17px] leading-relaxed text-muted sm:text-[19px] lg:mt-9 lg:max-w-[560px] lg:text-[24px] lg:leading-[1.5] xl:max-w-[680px] xl:text-[30px]">
             Creative technology for modern businesses, brands and professionals.
