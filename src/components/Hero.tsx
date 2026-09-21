@@ -4,9 +4,10 @@ import Container from './ui/Container'
 export default function Hero() {
   return (
     <section id="top" className="relative isolate overflow-hidden bg-paper">
-      <Container inset className="flex min-h-[640px] items-center pb-16 pt-28 md:min-h-[720px] lg:min-h-[880px] lg:pb-24 lg:pt-44">
-        <div className="max-w-[760px]">
-          <h1 className="text-[36px] font-semibold leading-[1.12] tracking-[-0.02em] text-ink sm:text-[52px] lg:text-[60px] lg:leading-[1.25] xl:text-[74px] xl:leading-[1.28] md:max-w-[calc(61vw-56px)] lg:max-w-[calc(67vw-104px)] xl:max-w-[min(760px,calc(64vw-104px))]">
+      <Container inset className="flex items-center pb-8 pt-28 lg:min-h-[800px] lg:pb-16 lg:pt-40 xl:min-h-[880px]">
+        {/* On wide screens the text stays left of the picture; the cap keeps it off the scene */}
+        <div className="max-w-[760px] lg:max-w-[calc(49vw-96px)] xl:max-w-[min(760px,calc(49vw-96px))]">
+          <h1 className="text-[36px] font-semibold leading-[1.12] tracking-[-0.02em] text-ink sm:text-[52px] lg:text-[60px] lg:leading-[1.25] xl:text-[74px] xl:leading-[1.28]">
             We Create,
             <br />
             You Own the <span className="text-brand-600">Spotlight</span>
@@ -22,6 +23,18 @@ export default function Hero() {
           </div>
         </div>
       </Container>
+
+      {/* Below the text on phones and tablets; on wide screens it sits behind the text, flush right */}
+      <div className="hero-visual pointer-events-none relative lg:absolute lg:right-0 lg:top-1/2 lg:-z-10 lg:w-[58vw] lg:max-w-[1000px] lg:-translate-y-1/2">
+        <img
+          src="/images/hero-workspace.webp"
+          alt="A laptop editing video on a desk with a camera, notebook and phone, surrounded by floating cards for video content, marketing and ghostwriting"
+          width={1153}
+          height={940}
+          fetchPriority="high"
+          className="block h-auto w-full"
+        />
+      </div>
     </section>
   )
 }

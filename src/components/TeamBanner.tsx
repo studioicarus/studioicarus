@@ -2,7 +2,7 @@ import Button from './ui/Button'
 import Container from './ui/Container'
 import Reveal from './ui/Reveal'
 
-/** Light, misty sunrise banner (matches the reference) with the team in silhouette. */
+/** Team banner: a photo of the team at work, faded into the page on the text side. */
 export default function TeamBanner() {
   return (
     <section id="team" className="relative isolate overflow-hidden bg-paper">
@@ -26,12 +26,12 @@ export default function TeamBanner() {
 
       <div className="relative h-60 sm:h-72 md:absolute md:inset-0 md:-z-10 md:h-auto">
         <img
-          src="/images/team-banner.webp"
-          alt="Six teammates standing together in silhouette on a ridge at sunrise"
+          src="/images/team-workspace.webp"
+          alt="A team working on laptops around shared tables in a loft studio while a colleague presents on a wall screen"
           loading="lazy"
-          width={1920}
-          height={640}
-          className="h-full w-full object-cover object-[78%_center]"
+          width={1600}
+          height={809}
+          className="h-full w-full object-cover object-[70%_45%]"
         />
         <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-paper to-transparent md:hidden" aria-hidden />
         <div className="absolute inset-0 hidden bg-gradient-to-r from-paper from-[28%] via-paper/70 via-[44%] to-transparent to-[62%] md:block" aria-hidden />

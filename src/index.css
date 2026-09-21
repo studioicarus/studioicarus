@@ -60,6 +60,20 @@ body {
   border-radius: 6px;
 }
 
+/* The hero picture melts into the page: soft top and bottom edges, plus a soft left edge beside the text on wide screens */
+.hero-visual {
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 86%, transparent);
+}
+@media (min-width: 1024px) {
+  .hero-visual {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 18%), linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to right, transparent, #000 18%), linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+    mask-composite: intersect;
+  }
+}
+
 .no-scrollbar {
   scrollbar-width: none;
 }

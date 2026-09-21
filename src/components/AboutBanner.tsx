@@ -3,7 +3,7 @@ import Button from './ui/Button'
 import Container from './ui/Container'
 import Reveal from './ui/Reveal'
 
-/** Cliff-and-sunset banner, washed in light gray on the text side. */
+/** Banner of the team at work by a lake at sunset, washed in light gray on the text side. */
 export default function AboutBanner() {
   return (
     <section className="relative isolate overflow-hidden bg-paper">
@@ -27,12 +27,12 @@ export default function AboutBanner() {
 
       <div className="relative h-60 sm:h-72 md:absolute md:inset-0 md:-z-10 md:h-auto">
         <img
-          src="/images/about-banner.webp"
-          alt="A group of people standing on a cliff edge looking toward the sunset"
+          src="/images/about-workspace.webp"
+          alt="Colleagues working at desks beside floating video, audio and design screens above a calm lake at sunset"
           loading="lazy"
-          width={1920}
-          height={640}
-          className="h-full w-full object-cover object-[80%_center]"
+          width={2000}
+          height={667}
+          className="h-full w-full object-cover object-[90%_center] md:object-[80%_center]"
         />
         <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-paper to-transparent md:hidden" aria-hidden />
         <div className="absolute inset-0 hidden bg-gradient-to-r from-paper from-[28%] via-paper/70 via-[44%] to-transparent to-[62%] md:block" aria-hidden />
