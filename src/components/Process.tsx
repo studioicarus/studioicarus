@@ -1,4 +1,5 @@
 import { steps } from '../data/content'
+import BrandName from './ui/BrandName'
 import Container from './ui/Container'
 import Reveal from './ui/Reveal'
 import SectionHeading from './ui/SectionHeading'
@@ -8,7 +9,7 @@ export default function Process() {
     <section id="process" className="bg-paper-light py-16 sm:py-20 lg:pb-24 lg:pt-[88px]">
       <Container>
         <Reveal>
-          <SectionHeading title="How ICARUS X Works" subtitle="A simple process. Focused results." />
+          <SectionHeading title={<>How <BrandName /> Works</>} subtitle="A simple process. Focused results." />
         </Reveal>
 
         <ol className="mt-10 grid gap-10 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4 lg:gap-0">

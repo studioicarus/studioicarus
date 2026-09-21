@@ -10,9 +10,9 @@ export default function TeamBanner() {
         <Container inset className="py-12 md:py-0">
           <Reveal className="max-w-[480px]">
             <h2 className="text-[34px] font-semibold leading-[1.12] tracking-[-0.015em] text-ink sm:text-[40px] lg:text-[58px]">
-              6 People.
+              Many Notes.
               <br />
-              One Team.
+              One Symphony.
             </h2>
             <p className="mt-4 max-w-[320px] text-[15px] leading-relaxed text-muted lg:mt-6 lg:max-w-[380px] lg:text-[23px] lg:leading-[1.55]">
               A creative technology company built for what&apos;s next.

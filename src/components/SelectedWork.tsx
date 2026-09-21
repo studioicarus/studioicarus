@@ -62,7 +62,7 @@ export default function SelectedWork() {
               <li key={title} className="w-[76%] shrink-0 snap-start sm:w-[calc(50%-10px)] lg:w-[calc(25%-18px)]">
                 <Reveal delay={i * 80}>
                   <a href="#contact" className="group block">
-                    <div className="relative aspect-[5/4] overflow-hidden rounded-[20px] border border-brand/50 bg-paper-deep shadow-[0_18px_40px_-20px_rgba(10,82,121,0.45)] transition duration-300 group-hover:border-brand group-hover:shadow-[0_18px_40px_-14px_rgba(29,160,214,0.6)]">
+                    <div className="relative aspect-[5/4] overflow-hidden rounded-[20px] border border-brand/50 bg-paper-deep shadow-[0_18px_40px_-20px_rgba(12,47,50,0.45)] transition duration-300 group-hover:border-brand group-hover:shadow-[0_18px_40px_-14px_rgba(22,150,161,0.6)]">
                       <img
                         src={image}
                         alt={alt}
@@ -71,7 +71,7 @@ export default function SelectedWork() {
                         height={640}
                         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      <span className="absolute left-1/2 top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full lg:h-16 lg:w-16 bg-brand/90 text-on-brand shadow-[0_6px_20px_rgba(29,160,214,0.6)] ring-4 ring-paper/40 transition duration-300 group-hover:scale-110">
+                      <span className="absolute left-1/2 top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full lg:h-16 lg:w-16 bg-brand/90 text-on-brand shadow-[0_6px_20px_rgba(22,150,161,0.6)] ring-4 ring-paper/40 transition duration-300 group-hover:scale-110">
                         <Play size={20} fill="currentColor" className="ml-0.5" aria-hidden />
                       </span>
                     </div>

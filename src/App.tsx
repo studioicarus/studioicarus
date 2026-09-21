@@ -15,8 +15,8 @@ export default function App() {
   const prevPath = useRef(path)
 
   useEffect(() => {
-    if (page) document.title = `${page.title} — ICARUS X`
-    else if (path === GET_STARTED_PATH) document.title = 'Get Started — ICARUS X'
+    if (page) document.title = `${page.title} — ICARUSX`
+    else if (path === GET_STARTED_PATH) document.title = 'Get Started — ICARUSX'
     else document.title = homeTitle
 
     const changed = prevPath.current !== path

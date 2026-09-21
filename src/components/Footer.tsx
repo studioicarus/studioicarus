@@ -1,5 +1,6 @@
 import { footerColumns } from '../data/content'
 import { Instagram, Linkedin, Tiktok, Youtube } from './ui/BrandIcons'
+import BrandName from './ui/BrandName'
 import Container from './ui/Container'
 import Link from './ui/Link'
 import Logo from './ui/Logo'
@@ -57,7 +58,7 @@ export default function Footer() {
 
       <div className="border-t border-white/15">
         <Container inset className="flex flex-col gap-2 py-6 text-[13px] text-on-deep sm:flex-row sm:items-center sm:justify-between lg:py-9 lg:text-[16px]">
-          <p>© 2026 ICARUS X. All rights reserved.</p>
+          <p>© 2026 <BrandName onDark />. All rights reserved.</p>
           <p>Built for what&apos;s next.</p>
         </Container>
       </div>

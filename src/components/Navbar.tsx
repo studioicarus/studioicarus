@@ -17,10 +17,10 @@ export default function Navbar() {
   }, [open])
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-paper-deep/95 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/10 bg-paper-deep">
       <Container inset>
         <nav aria-label="Primary" className="flex h-[72px] items-center justify-between lg:h-[88px] xl:h-[112px]">
-          <Logo />
+          <Logo mark />
 
           <ul className="hidden items-center gap-7 md:flex lg:gap-8 xl:gap-11">
             {navLinks.map((l) => (

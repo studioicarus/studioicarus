@@ -1,3 +1,4 @@
+import BrandName from './ui/BrandName'
 import Button from './ui/Button'
 import Container from './ui/Container'
 import Reveal from './ui/Reveal'
@@ -12,7 +13,7 @@ export default function AboutBanner() {
             <h2 className="text-[34px] font-semibold leading-[1.12] tracking-[-0.015em] text-ink sm:text-[40px] lg:text-[58px]">
               About.
               <br />
-              ICARUS X
+              <BrandName />
             </h2>
             <p className="mt-4 max-w-[320px] text-[15px] leading-relaxed text-muted lg:mt-6 lg:max-w-[360px] lg:text-[23px] lg:leading-[1.55]">
               A creative technology company built to define what&apos;s next.

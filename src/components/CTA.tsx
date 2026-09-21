@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { CONTACT_HREF } from '../data/content'
+import BrandName from './ui/BrandName'
 import Button from './ui/Button'
 import Container from './ui/Container'
 import Reveal from './ui/Reveal'
@@ -23,7 +24,7 @@ export default function CTA({ title = 'Have Something You Want to Build?', label
           <p className="mt-5 max-w-[640px] text-[15px] leading-[1.7] text-muted sm:text-[17px] lg:mt-6 lg:max-w-[860px] lg:text-[22px] lg:leading-[1.65]">
             {children ?? (
               <>
-                Let&apos;s talk. Whether you need a video, a personal brand,{' '}<br className="hidden lg:block" />or a complete social media presence — ICARUS X can help you create it.
+                Let&apos;s talk. Whether you need a video, a personal brand,{' '}<br className="hidden lg:block" />or a complete social media presence — <BrandName /> can help you create it.
               </>
             )}
           </p>

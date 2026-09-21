@@ -19,7 +19,7 @@ export default function Services() {
         <div className="mt-9 grid gap-6 md:grid-cols-3 lg:mt-14 lg:gap-8">
           {services.map(({ title, text, image, alt, icon: Icon, href }, i) => {
             const card = (
-              <article className="group h-full overflow-hidden rounded-[20px] border border-ink/15 bg-surface shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_44px_-18px_rgba(10,82,121,0.4)]">
+              <article className="group h-full overflow-hidden rounded-[20px] border border-ink/15 bg-surface shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_44px_-18px_rgba(12,47,50,0.4)]">
                 <div className="aspect-[8/5] overflow-hidden bg-paper-deep">
                   <img
                     src={image}

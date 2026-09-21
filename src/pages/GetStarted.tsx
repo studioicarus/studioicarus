@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type FormEvent, type ReactNode } from 'react'
 import { ArrowLeft, CalendarDays, Check, ChevronLeft, ChevronRight, Clock, Globe, Video } from 'lucide-react'
+import BrandName from '../components/ui/BrandName'
 import Button from '../components/ui/Button'
 import Container from '../components/ui/Container'
 import { CONTACT_HREF, booking } from '../data/content'
@@ -93,7 +94,7 @@ export default function GetStarted() {
     if (!selectedSlot) return CONTACT_HREF
     const optional = [form.guests.trim() && `Guests: ${form.guests.trim()}`, form.notes.trim() && `\nNotes:\n${form.notes.trim()}`].filter(Boolean)
     const lines = [
-      'Hello ICARUS X,',
+      'Hello ICARUSX,',
       '',
       `I'd like to book a ${booking.title}.`,
       '',
@@ -134,12 +135,14 @@ export default function GetStarted() {
             )}
             <img
               src="/images/icarus-mark-hero.png"
-              alt="ICARUS X logo"
+              alt="ICARUSX logo"
               width={72}
               height={72}
               className="mx-auto h-[72px] w-[72px] rounded-full bg-paper-light object-contain p-1.5 ring-1 ring-ink/15"
             />
-            <p className="mt-3 text-[15px] font-semibold text-muted">ICARUS X</p>
+            <p className="mt-3 text-[15px] font-semibold text-muted">
+              <BrandName />
+            </p>
             <h1 className="mt-1 text-[28px] font-semibold leading-tight tracking-[-0.015em] text-ink sm:text-[32px]">{booking.title}</h1>
             <ul className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[15px] font-semibold text-muted">
               <li className="flex items-center gap-2">
@@ -337,7 +340,7 @@ export default function GetStarted() {
                 <textarea id="notes" rows={4} value={form.notes} onChange={(e) => setForm({ ...form, notes: e.target.value })} className={inputClass} />
               </Field>
 
-              <p className="mt-5 text-[14px] leading-relaxed text-muted">By proceeding, you agree that ICARUS X may contact you about this meeting.</p>
+              <p className="mt-5 text-[14px] leading-relaxed text-muted">By proceeding, you agree that <BrandName /> may contact you about this meeting.</p>
 
               <button
                 type="submit"
