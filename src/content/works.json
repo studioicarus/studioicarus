@@ -1,0 +1,49 @@
+[
+  {
+    "title": "Product Advertisement",
+    "service": "video-motion",
+    "tag": "AI + 3D Modeling + Graphic Design + Video Editing",
+    "text": "We create engaging video content for social media or your personal website using 3D modeling, graphic design, video editing and the power of AI.",
+    "image": "/images/work-product.webp",
+    "alt": "Presenter behind a glowing white product on a wooden table",
+    "video": "",
+    "featured": true,
+    "skills": [
+      { "label": "3D Modeling", "icon": "box" },
+      { "label": "Graphic Design", "icon": "brush" },
+      { "label": "Video Editing", "icon": "film" },
+      { "label": "AI Prompting", "icon": "sparkles" }
+    ]
+  },
+  {
+    "title": "LinkedIn Content",
+    "service": "personal-brand",
+    "tag": "Ghostwriting",
+    "text": "We craft natural, authentic ghostwriting by deeply researching each client's previous writing to capture their unique voice and style. Combined with expert topic research and analysis, every piece feels genuinely written by the client.",
+    "image": "/images/work-linkedin.webp",
+    "alt": "Tablet showing LinkedIn posts and a content dashboard",
+    "video": "",
+    "featured": true,
+    "skills": [
+      { "label": "Ghostwriting", "icon": "mic" },
+      { "label": "Voice Research", "icon": "search" },
+      { "label": "Expert Analysis", "icon": "file-search" }
+    ]
+  },
+  {
+    "title": "Educational Animation",
+    "service": "video-motion",
+    "tag": "AI + Storytelling + Video Production",
+    "text": "Our artists create original, emotionally powerful stories designed to connect with audiences. Our tech team brings those ideas to life through visualization, AI prompt engineering, and professional video editing.",
+    "image": "/images/work-education.webp",
+    "alt": "Illustrated learning scene with a tablet showing charts",
+    "video": "",
+    "featured": true,
+    "skills": [
+      { "label": "Original Stories", "icon": "book-open" },
+      { "label": "Visualization", "icon": "image" },
+      { "label": "AI Prompt Engineering", "icon": "brain-circuit" },
+      { "label": "Video Editing", "icon": "film" }
+    ]
+  }
+]

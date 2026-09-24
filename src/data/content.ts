@@ -37,6 +37,8 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import { Instagram, LinkedinSquare, Tiktok, Youtube, type IconComponent } from '../components/ui/BrandIcons'
+import teamData from '../content/team.json'
+import worksData from '../content/works.json'
 
 /** Placeholder — swap for the real inbox. */
 export const CONTACT_HREF = 'mailto:hello@icarusx.com'
@@ -45,6 +47,8 @@ export const VIDEO_MOTION_PATH = '/services/video-motion'
 export const PERSONAL_BRAND_PATH = '/services/personal-brand'
 export const BRAND_GROWTH_PATH = '/services/brand-social-growth'
 export const GET_STARTED_PATH = '/get-started'
+export const TEAM_PATH = '/team'
+export const WORK_PATH = '/work'
 
 /**
  * Settings for the Get Started booking page. Availability is written in the studio's own time zone
@@ -69,9 +73,9 @@ export type AnyIcon = LucideIcon | IconComponent
 /** Hrefs start with "/" so they work from any page; on the home page they are plain in-page scrolls. */
 export const navLinks = [
   { label: 'Services', href: '/#services' },
-  { label: 'Work', href: '/#work' },
+  { label: 'Work', href: WORK_PATH },
   { label: 'About', href: '/#about' },
-  { label: 'Team', href: '/#team' },
+  { label: 'Team', href: TEAM_PATH },
   { label: 'Contact', href: '/#contact' },
 ]
 
@@ -105,6 +109,8 @@ export const services: { title: string; text: string; image: string; alt: string
 /** Content for the individual service pages, keyed by their path. */
 export type ServicePage = {
   title: string
+  /** Matches the last part of the page's path and the `service` field of each work. */
+  slug: string
   icon: AnyIcon
   intro: string
   image: string
@@ -116,6 +122,7 @@ export type ServicePage = {
 const servicePages: Record<string, ServicePage> = {
   [VIDEO_MOTION_PATH]: {
     title: 'Video & Motion',
+    slug: 'video-motion',
     icon: Clapperboard,
     intro: 'From podcast shorts to AI-generated educational cartoons, we create engaging videos that inform, entertain and convert.',
     image: '/images/svc-video-studio.webp',
@@ -134,6 +141,7 @@ const servicePages: Record<string, ServicePage> = {
   },
   [PERSONAL_BRAND_PATH]: {
     title: 'Personal Brand & Content',
+    slug: 'personal-brand',
     icon: LinkedinSquare,
     intro: 'Build your authority and credibility with high-quality, research-driven content.',
     image: '/images/svc-linkedin-studio.webp',
@@ -152,6 +160,7 @@ const servicePages: Record<string, ServicePage> = {
   },
   [BRAND_GROWTH_PATH]: {
     title: 'Brand & Social Growth',
+    slug: 'brand-social-growth',
     icon: Sparkles,
     intro: 'We create the content and campaigns that help brands get noticed and grow.',
     image: '/images/svc-brand-growth-studio.webp',
@@ -174,6 +183,9 @@ export function getServicePage(path: string): ServicePage | undefined {
   return Object.prototype.hasOwnProperty.call(servicePages, path) ? servicePages[path] : undefined
 }
 
+/** The services a work can belong to, for the filter on the Works page. */
+export const serviceFilters = Object.values(servicePages).map(({ slug, title }) => ({ slug, title }))
+
 export const needs: { lines: [string, string]; icon: AnyIcon }[] = [
   { lines: ['Podcast +', 'Shorts & Reels'], icon: Mic },
   { lines: ['Build My', 'LinkedIn Brand'], icon: LinkedinSquare },
@@ -182,53 +194,66 @@ export const needs: { lines: [string, string]; icon: AnyIcon }[] = [
   { lines: ['Educational', 'Content'], icon: GraduationCap },
 ]
 
-export const work: {
+/*
+ * Team and works live in plain data files (src/content/*.json) so they can be edited without touching
+ * code, by hand or through an admin page later. Each entry below is one item in those files.
+ */
+export type TeamMember = {
+  name: string
+  role: string
+  bio: string
+  /** Path to a square photo, e.g. "/images/team/jane.webp". Leave empty to show initials. */
+  photo: string
+  /** Full LinkedIn URL. Leave empty to hide the link. */
+  linkedin: string
+}
+
+export type WorkItem = {
   title: string
+  /** The `slug` of one of the services: "video-motion", "personal-brand" or "brand-social-growth". */
+  service: string
+  /** One line under the title, e.g. "AI + Storytelling + Video Production". */
   tag: string
   text: string
+  /** Cover image path. Leave empty to use the video's thumbnail (YouTube links only). */
   image: string
   alt: string
-  skills: { label: string; icon: AnyIcon }[]
-}[] = [
-  {
-    title: 'Product Advertisement',
-    tag: 'AI + 3D Modeling + Graphic Design + Video Editing',
-    text: 'We create engaging video content for social media or your personal website using 3D modeling, graphic design, video editing and the power of AI.',
-    image: '/images/work-product.webp',
-    alt: 'Presenter behind a glowing white product on a wooden table',
-    skills: [
-      { label: '3D Modeling', icon: Box },
-      { label: 'Graphic Design', icon: Brush },
-      { label: 'Video Editing', icon: Film },
-      { label: 'AI Prompting', icon: Sparkles },
-    ],
-  },
-  {
-    title: 'LinkedIn Content',
-    tag: 'Ghostwriting',
-    text: "We craft natural, authentic ghostwriting by deeply researching each client's previous writing to capture their unique voice and style. Combined with expert topic research and analysis, every piece feels genuinely written by the client.",
-    image: '/images/work-linkedin.webp',
-    alt: 'Tablet showing LinkedIn posts and a content dashboard',
-    skills: [
-      { label: 'Ghostwriting', icon: Mic },
-      { label: 'Voice Research', icon: Search },
-      { label: 'Expert Analysis', icon: FileSearch },
-    ],
-  },
-  {
-    title: 'Educational Animation',
-    tag: 'AI + Storytelling + Video Production',
-    text: 'Our artists create original, emotionally powerful stories designed to connect with audiences. Our tech team brings those ideas to life through visualization, AI prompt engineering, and professional video editing.',
-    image: '/images/work-education.webp',
-    alt: 'Illustrated learning scene with a tablet showing charts',
-    skills: [
-      { label: 'Original Stories', icon: BookOpen },
-      { label: 'Visualization', icon: ImageIcon },
-      { label: 'AI Prompt Engineering', icon: BrainCircuit },
-      { label: 'Video Editing', icon: Film },
-    ],
-  },
-]
+  /** A YouTube or Vimeo link, or a link to a short .mp4. Leave empty for no video. */
+  video: string
+  /** Shown in the Selected Work section on the home page (the first three are used). */
+  featured: boolean
+  /** `icon` is a key from `skillIcons`. */
+  skills: { label: string; icon: string }[]
+}
+
+export const team = teamData as TeamMember[]
+export const works = worksData as WorkItem[]
+export const featuredWorks = works.filter((w) => w.featured).slice(0, 3)
+
+/** Icons a work's skill tag can use. Unknown keys fall back to a sparkle. */
+export const skillIcons: Record<string, AnyIcon> = {
+  box: Box,
+  brush: Brush,
+  film: Film,
+  sparkles: Sparkles,
+  mic: Mic,
+  search: Search,
+  'file-search': FileSearch,
+  'book-open': BookOpen,
+  image: ImageIcon,
+  'brain-circuit': BrainCircuit,
+  'pen-tool': PenTool,
+  camera: Camera,
+  megaphone: Megaphone,
+  share: Share2,
+  shapes: Shapes,
+  calendar: CalendarDays,
+  target: Target,
+  compass: Compass,
+  newspaper: Newspaper,
+  clapperboard: Clapperboard,
+}
+export const skillIcon = (key: string): AnyIcon => skillIcons[key] ?? Sparkles
 
 export const steps: { n: string; title: string; text: string; icon: LucideIcon }[] = [
   { n: '01', title: 'Discover', text: 'We understand your goals and audience.', icon: Search },
@@ -264,8 +289,8 @@ export const footerColumns = [
     title: 'Company',
     links: [
       { label: 'About', href: '/#about' },
-      { label: 'Our Team', href: '/#team' },
-      { label: 'Portfolio', href: '/#work' },
+      { label: 'Our Team', href: TEAM_PATH },
+      { label: 'Portfolio', href: WORK_PATH },
       { label: 'Contact', href: '/#contact' },
     ],
   },

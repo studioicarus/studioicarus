@@ -5,10 +5,10 @@ import Container from '../components/ui/Container'
 import Link from '../components/ui/Link'
 import Reveal from '../components/ui/Reveal'
 import SectionHeading from '../components/ui/SectionHeading'
-import { GET_STARTED_PATH, type ServicePage } from '../data/content'
+import { GET_STARTED_PATH, WORK_PATH, type ServicePage } from '../data/content'
 
 export default function ServiceDetail({ page }: { page: ServicePage }) {
-  const { title, icon: Icon, intro, image, alt, offeringsSubtitle, offerings } = page
+  const { title, slug, icon: Icon, intro, image, alt, offeringsSubtitle, offerings } = page
 
   return (
     <>
@@ -35,7 +35,7 @@ export default function ServiceDetail({ page }: { page: ServicePage }) {
                 <Button href="#offerings">
                   Learn More <ArrowRight size={18} aria-hidden />
                 </Button>
-                <Button href="/#work" variant="outline">
+                <Button href={`${WORK_PATH}?service=${slug}`} variant="outline">
                   See our work
                 </Button>
               </div>

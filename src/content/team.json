@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Team member 1",
+    "role": "Creative director",
+    "bio": "Add a short bio here: what they do and what they love about the work.",
+    "photo": "",
+    "linkedin": ""
+  },
+  {
+    "name": "Team member 2",
+    "role": "Video editor",
+    "bio": "Add a short bio here: what they do and what they love about the work.",
+    "photo": "",
+    "linkedin": ""
+  },
+  {
+    "name": "Team member 3",
+    "role": "Motion designer",
+    "bio": "Add a short bio here: what they do and what they love about the work.",
+    "photo": "",
+    "linkedin": ""
+  },
+  {
+    "name": "Team member 4",
+    "role": "Ghostwriter",
+    "bio": "Add a short bio here: what they do and what they love about the work.",
+    "photo": "",
+    "linkedin": ""
+  },
+  {
+    "name": "Team member 5",
+    "role": "Content strategist",
+    "bio": "Add a short bio here: what they do and what they love about the work.",
+    "photo": "",
+    "linkedin": ""
+  },
+  {
+    "name": "Team member 6",
+    "role": "Social media manager",
+    "bio": "Add a short bio here: what they do and what they love about the work.",
+    "photo": "",
+    "linkedin": ""
+  }
+]

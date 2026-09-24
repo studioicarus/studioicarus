@@ -1,3 +1,4 @@
+import { TEAM_PATH } from '../data/content'
 import Button from './ui/Button'
 import Container from './ui/Container'
 import Reveal from './ui/Reveal'
@@ -17,7 +18,7 @@ export default function TeamBanner() {
             <p className="mt-4 max-w-[320px] text-[15px] leading-relaxed text-muted lg:mt-6 lg:max-w-[380px] lg:text-[23px] lg:leading-[1.55]">
               A creative technology company built for what&apos;s next.
             </p>
-            <Button href="#about" className="mt-7 lg:mt-9">
+            <Button href={TEAM_PATH} className="mt-7 lg:mt-9">
               Meet Our Team
             </Button>
           </Reveal>
