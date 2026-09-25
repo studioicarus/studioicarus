@@ -1,0 +1,161 @@
+# ICARUSX admin (Sveltia CMS). It edits the JSON files in src/content and saves every change as a commit on GitHub.
+backend:
+  name: github
+  repo: studioicarus/studioicarus
+  branch: main
+  auth_methods: [token]
+  commit_messages:
+    update: 'Admin: update {{slug}}'
+    uploadMedia: 'Admin: upload {{path}}'
+    deleteMedia: 'Admin: delete {{path}}'
+
+site_url: https://icarusx.tech
+display_url: https://icarusx.tech
+logo_url: /images/icarus-logo-mark.webp
+
+# Uploaded photos are shrunk to at most 1600 px and saved as WebP, so a big phone photo cannot slow the site down.
+media_folder: /public/images/uploads
+public_folder: /images/uploads
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 1600
+          height: 1600
+
+singletons:
+  - name: team
+    label: Team
+    icon: group
+    file: src/content/team.json
+    fields:
+      - name: members
+        label: Team members
+        label_singular: Team member
+        widget: list
+        root: true
+        collapsed: true
+        summary: '{{name}}, {{role}}'
+        thumbnail: photo
+        hint: 'Drag the handle to change the order. Members appear on the Team page in this order.'
+        fields:
+          - name: name
+            label: Name
+            widget: string
+          - name: role
+            label: Role
+            widget: string
+            hint: 'For example: Video editor.'
+          - name: bio
+            label: Short bio
+            widget: text
+            hint: 'Two or three sentences about what they do and what they love about the work.'
+          - name: photo
+            label: Photo
+            widget: image
+            required: false
+            hint: 'A square photo, at least 800 px wide. Leave it empty to show their initials instead.'
+          - name: linkedin
+            label: LinkedIn link
+            widget: string
+            type: url
+            required: false
+            hint: 'The full link to their LinkedIn profile. Leave it empty to hide the LinkedIn button.'
+
+  - name: works
+    label: Work
+    icon: movie
+    file: src/content/works.json
+    fields:
+      - name: works
+        label: Projects
+        label_singular: Project
+        widget: list
+        root: true
+        collapsed: true
+        summary: '{{title}}'
+        thumbnail: image
+        hint: 'Drag the handle to change the order. Projects appear on the site in this order.'
+        fields:
+          - name: title
+            label: Title
+            widget: string
+          - name: service
+            label: Service
+            widget: select
+            options:
+              - { label: 'Video & Motion', value: video-motion }
+              - { label: 'Personal Brand & Content', value: personal-brand }
+              - { label: 'Brand & Social Growth', value: brand-social-growth }
+            hint: 'Decides which filter on the Our Work page this project belongs to.'
+          - name: tag
+            label: Tag line
+            widget: string
+            hint: 'One line under the title, for example: AI + Storytelling + Video Production.'
+          - name: text
+            label: Description
+            widget: text
+            hint: 'Two or three sentences about the project.'
+          - name: image
+            label: Cover image
+            widget: image
+            required: false
+            hint: 'Landscape (4:3) works best. Leave it empty to use the YouTube thumbnail when there is a YouTube link.'
+          - name: alt
+            label: Cover image description
+            widget: string
+            required: false
+            hint: 'A short description of the cover for people who use screen readers.'
+          - name: video
+            label: Video link
+            widget: string
+            type: url
+            required: false
+            hint: 'A YouTube or Vimeo link, or a link to an .mp4 file. Leave it empty for no video.'
+          - name: featured
+            label: Show on the home page
+            widget: boolean
+            required: false
+            default: false
+            hint: 'The first three projects with this switched on appear in Selected Work on the home page.'
+          - name: skills
+            label: Skills used
+            label_singular: Skill
+            widget: list
+            required: false
+            summary: '{{label}}'
+            hint: 'Short tags shown as icons under the project. Three or four work best.'
+            fields:
+              - name: label
+                label: Name
+                widget: string
+              # These icon values must match the keys of skillIcons in src/data/content.ts.
+              - name: icon
+                label: Icon
+                widget: select
+                default: sparkles
+                options:
+                  - { label: '3D box (3D modeling)', value: box }
+                  - { label: 'Brush (design)', value: brush }
+                  - { label: 'Film (video editing)', value: film }
+                  - { label: 'Clapperboard (video production)', value: clapperboard }
+                  - { label: 'Shapes (motion graphics)', value: shapes }
+                  - { label: 'Sparkles (AI)', value: sparkles }
+                  - { label: 'Brain (AI prompting)', value: brain-circuit }
+                  - { label: 'Microphone (voice, podcasts)', value: mic }
+                  - { label: 'Pen (writing, drawing)', value: pen-tool }
+                  - { label: 'Newspaper (articles)', value: newspaper }
+                  - { label: 'Open book (stories, learning)', value: book-open }
+                  - { label: 'Picture (visuals)', value: image }
+                  - { label: 'Camera (photography)', value: camera }
+                  - { label: 'Magnifier (research)', value: search }
+                  - { label: 'Document search (analysis)', value: file-search }
+                  - { label: 'Compass (strategy)', value: compass }
+                  - { label: 'Target (positioning)', value: target }
+                  - { label: 'Calendar (planning)', value: calendar }
+                  - { label: 'Megaphone (advertising)', value: megaphone }
+                  - { label: 'Share (social media)', value: share }

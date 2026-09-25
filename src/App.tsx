@@ -11,6 +11,9 @@ import Works from './pages/Works'
 
 const homeTitle = document.title
 
+/** The admin is a separate page in public/admin; a host that hands "/admin" to this app sends visitors on to it. */
+const ADMIN_PATH = '/admin'
+
 /** Pages that are not a service page, with their browser-tab titles. */
 const pages: Record<string, { title: string; element: () => ReactElement }> = {
   [GET_STARTED_PATH]: { title: 'Get Started — ICARUSX', element: () => <GetStarted /> },
@@ -25,6 +28,10 @@ export default function App() {
   const prevPath = useRef(path)
 
   useEffect(() => {
+    if (path === ADMIN_PATH) {
+      window.location.replace(`${ADMIN_PATH}/`)
+      return
+    }
     if (page) document.title = `${page.title} — ICARUSX`
     else if (other) document.title = other.title
     else document.title = homeTitle
@@ -36,6 +43,8 @@ export default function App() {
     if (target) target.scrollIntoView()
     else if (changed) window.scrollTo({ top: 0, behavior: 'instant' })
   }, [path, page, other])
+
+  if (path === ADMIN_PATH) return null
 
   return (
     <>
