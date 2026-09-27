@@ -134,11 +134,11 @@ export default function GetStarted() {
               </button>
             )}
             <img
-              src="/images/icarus-mark-hero.png"
+              src="/images/icarus-logo-mark.webp"
               alt="ICARUSX logo"
               width={72}
               height={72}
-              className="mx-auto h-[72px] w-[72px] rounded-full bg-paper-light object-contain p-1.5 ring-1 ring-ink/15"
+              className="mx-auto h-[72px] w-[72px] rounded-full bg-paper-deep object-contain p-3 ring-1 ring-ink/15"
             />
             <p className="mt-3 text-[15px] font-semibold text-muted">
               <BrandName />
